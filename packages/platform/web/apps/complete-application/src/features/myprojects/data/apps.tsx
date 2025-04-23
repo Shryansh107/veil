@@ -1,110 +1,59 @@
-import {
-  IconApi,
-  IconApiApp,
-  IconApps,
-  IconBrandGithub,
-  IconBrandGitlab,
-  IconBrandGmail,
-  IconBrandMedium,
-  IconBrandNotion,
-  IconBrandSkype,
-  IconBrandSlack,
-  IconBrandStripe,
-  IconBrandTelegram,
-  IconBrandTrello,
-  IconBrandWhatsapp,
-  IconBrandZoom,
-} from '@tabler/icons-react'
+interface App {
+  name: string;
+  desc: string;
+  logo: React.ReactNode;
+  category: string;
+  connected: boolean;
+}
 
-export const apps = [
+export const apps: App[] = [
   {
-    name: 'Messaging API',
-    logo: <IconApi />,
-    connected: false,
-    desc: 'Connect with Telegram for real-time communication.',
+    name: "AI Assistant",
+    desc: "An intelligent assistant that helps with various tasks",
+    logo: "🤖",
+    category: "ai",
+    connected: false
   },
   {
-    name: 'Document API',
-    logo: <IconApiApp />,
-    connected: true,
-    desc: 'Effortlessly sync Notion pages for seamless collaboration.',
+    name: "Analytics Dashboard",
+    desc: "Real-time analytics and reporting platform for business insights",
+    logo: "📊",
+    category: "analytics",
+    connected: false
   },
   {
-    name: 'Design API',
-    logo: <IconApps />,
-    connected: true,
-    desc: 'View and collaborate on Figma designs in one place.',
+    name: "E-commerce Platform",
+    desc: "Complete e-commerce solution with inventory and payment management",
+    logo: "🛒",
+    category: "commerce",
+    connected: false
   },
   {
-    name: 'Project API',
-    logo: <IconApiApp />,
-    connected: false,
-    desc: 'Sync Trello cards for streamlined project management.',
+    name: "Content Management",
+    desc: "Comprehensive system to manage and publish digital content",
+    logo: "📝",
+    category: "content",
+    connected: false
   },
   {
-    name: 'Team API',
-    logo: <IconApi />,
-    connected: false,
-    desc: 'Integrate Slack for efficient team communication',
+    name: "Data Warehouse",
+    desc: "Centralized data storage and processing for business intelligence",
+    logo: "🗄️",
+    category: "data",
+    connected: false
   },
   {
-    name: 'Video API',
-    logo: <IconApiApp />,
-    connected: true,
-    desc: 'Host Zoom meetings directly from the dashboard.',
+    name: "Marketing Automation",
+    desc: "Automate and optimize marketing campaigns across channels",
+    logo: "📢",
+    category: "marketing",
+    connected: false
   },
   {
-    name: 'Payment API',
-    logo: <IconApi />,
-    connected: false,
-    desc: 'Easily manage Stripe transactions and payments.',
-  },
-  {
-    name: 'Email API',
-    logo: <IconApiApp />,
-    connected: true,
-    desc: 'Access and manage Gmail messages effortlessly.',
-  },
-  {
-    name: 'Content API',
-    logo: <IconApps />,
-    connected: false,
-    desc: 'Explore and share Medium stories on your dashboard.',
-  },
-  {
-    name: 'Voice API',
-    logo: <IconApi />,
-    connected: false,
-    desc: 'Connect with Skype contacts seamlessly.',
-  },
-  {
-    name: 'Container API',
-    logo: <IconApiApp />,
-    connected: false,
-    desc: 'Effortlessly manage Docker containers on your dashboard.',
-  },
-  {
-    name: 'Code API',
-    logo: <IconApps />,
-    connected: false,
-    desc: 'Streamline code management with GitHub integration.',
-  },
-  {
-    name: 'Repository API',
-    logo: <IconApi />,
-    connected: false,
-    desc: 'Efficiently manage code projects with GitLab integration.',
-  },
-  {
-    name: 'Chat API',
-    logo: <IconApiApp />,
-    connected: false,
-    desc: 'Connect with Discord for seamless team communication.',
-  },
-  {
-    name: 'Message API',
-    logo: <IconApps />,
-    connected: false,
-    desc: 'Easily integrate WhatsApp for direct messaging.',
-  },
-]
+    name: "Customer Support",
+    desc: "Streamlined customer support and ticket management system",
+    logo: "💬",
+    category: "customer-support",
+    connected: false
+  }
+];
