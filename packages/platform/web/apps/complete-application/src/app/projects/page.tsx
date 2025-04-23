@@ -6,6 +6,7 @@ import Apps from "@/features/apps";
 import MyProjects from "@/features/myprojects";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MyAnalytics from "@/features/myanalytics";
+import { CreateTenantForm } from "@/features/projects/create-tenant-form";
 
 interface User {
   given_name?: string;
@@ -17,6 +18,8 @@ export default function Projects() {
   const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
+  
+  const [hasOrganization, setHasOrganization] = useState(true); // Set
 
   useEffect(() => {
     console.log("Fetching user token...");
@@ -42,6 +45,9 @@ export default function Projects() {
           .then((userData: User) => {
             console.log("User info loaded:", userData);
             setUser(userData);
+            // TODO: Add API call to check if user has organization
+            // For now, we'll set it to false
+            setHasOrganization(false);
             setIsLoading(false);
           })
           .catch((err) => {
@@ -58,8 +64,19 @@ export default function Projects() {
 
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
+  if (!hasOrganization) {
+    return (
+      <main className="flex flex-col">
+        <Navbar session={!isLoading && user !== null} user={user} />
+        <div className="flex-1 pt-24">
+          <CreateTenantForm />
+        </div>
+      </main>
+    );
+  }
+
   return (
-    <main className=" flex flex-col">
+    <main className="flex flex-col">
       <Navbar session={!isLoading && user !== null} user={user} />
       <div className="flex-1 pt-24">
         <div className="sticky top-16 z-20 bg-background w-full max-w-7xl mx-auto px-6 h-[calc(100vh-7rem)]">
